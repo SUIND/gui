@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>rqt_snappy_quad_gui</name>
+  <version>0.0.0</version>
+  <description>The rqt_snappy_quad_gui package</description>
+
+  <maintainer email="kunals@student.ethz.ch">Kunal Shrivastava</maintainer>
+  <license>MIT</license>
+
+  <author>Matthias Faessler</author>
+  <author>Flavio Fontana</author>
+  <author>Kunal Shrivastava</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>geometry_msgs</depend>
+  <depend>quadrotor_msgs</depend>
+  <depend>rospy</depend>
+  <depend>rqt_gui</depend>
+  <depend>rqt_gui_py</depend>
+  <depend>std_msgs</depend>
+
+  <export>
+    <rqt_gui plugin="${prefix}/plugin.xml"/>
+  </export>
+
+</package>
