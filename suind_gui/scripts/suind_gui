@@ -4,6 +4,6 @@ import sys
 
 from rqt_gui.main import Main
 
-plugin = 'rqt_snappy_quad_gui'
+plugin = 'suind_gui'
 main = Main(filename=plugin)
 sys.exit(main.main(sys.argv, standalone=plugin))

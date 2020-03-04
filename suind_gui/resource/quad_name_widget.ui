@@ -42,7 +42,7 @@
     </font>
    </property>
    <property name="text">
-    <string>RPG Quadrotor Gui</string>
+    <string>SUIND Gui</string>
    </property>
   </widget>
   <widget class="QPushButton" name="button_connect">

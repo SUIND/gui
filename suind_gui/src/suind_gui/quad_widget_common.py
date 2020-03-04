@@ -72,7 +72,7 @@ class QuadWidgetCommon(QWidget):
             plugin.connect(quad_name)
 
     def disconnect(self):
-        self.setWindowTitle("RPG Snappy Quad Gui")
+        self.setWindowTitle("Suind Quad Gui")
         for plugin in self.get_list_of_plugins():
             plugin.disconnect()
 

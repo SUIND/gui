@@ -12,7 +12,7 @@ class GuiBase(Plugin):
     def __init__(self, context, main_qt_widget):
         # Init Plugin
         super(GuiBase, self).__init__(context)  # Init Plugin superclass
-        self.setObjectName('RPG Quad Gui Plugin')
+        self.setObjectName('SUIND Gui Plugin')
 
         # Load arguments
         args = self._parse_args(context.argv())
@@ -30,7 +30,7 @@ class GuiBase(Plugin):
         # tell from pane to pane.
         if context.serial_number() > 1:
             self._widget.setWindowTitle(
-                'RPG Quad GUI' + (' (%d)' % context.serial_number()))
+                'SUIND GUI' + (' (%d)' % context.serial_number()))
         else:
             self._widget.setWindowTitle('RPG Quad GUI')
         # Add widget to the user interface

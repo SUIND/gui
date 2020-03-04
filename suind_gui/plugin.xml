@@ -1,6 +1,6 @@
 <library path="src">
 
-  <class name="rqt_snappy_quad_gui_basic" type="rqt_snappy_quad_gui.basic_flight.BasicFlight" base_class_type="rqt_gui_py::Plugin">
+  <class name="suind_gui_basic" type="suind_gui.basic_flight.BasicFlight" base_class_type="rqt_gui_py::Plugin">
     <!-- 
     path: The package-relative path which gets added to sys.path. 
     name: The name of the plugin, which must be unique within a package. 
@@ -17,7 +17,7 @@
         <icon type="theme">folder</icon>
       </group>
       
-      <label>RPG Basic Quad Flight Gui</label>
+      <label>Suind Gui</label>
       <icon type="theme">applications-other</icon>
     </qtgui>
 
