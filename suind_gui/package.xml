@@ -10,13 +10,14 @@
   <author>Kunal Shrivastava</author>
 
   <buildtool_depend>catkin</buildtool_depend>
-
+  <!-- ROS Stuff -->
   <depend>geometry_msgs</depend>
-  <depend>quadrotor_msgs</depend>
   <depend>rospy</depend>
   <depend>rqt_gui</depend>
   <depend>rqt_gui_py</depend>
   <depend>std_msgs</depend>
+  <!-- RPG Open Source Stuff -->
+  <depend>quadrotor_msgs</depend>
 
   <export>
     <rqt_gui plugin="${prefix}/plugin.xml"/>
