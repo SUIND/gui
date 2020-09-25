@@ -41,6 +41,8 @@ class AutopilotWidget(QWidget):
         self._enable_stereo_pub = None
 
         self._autopilot_feedback_sub = None
+        self._state_estimate_sub = None
+        self._low_level_feedback_sub = None
         self._autopilot_feedback = quadrotor_msgs.AutopilotFeedback()
         self._autopilot_feedback_stamp = rospy.Time.now()
 
@@ -85,6 +87,14 @@ class AutopilotWidget(QWidget):
             quad_namespace+'/autopilot/feedback',
             quadrotor_msgs.AutopilotFeedback, self.autopilot_feedback_cb)
 
+        self._state_estimate_sub = rospy.Subscriber(
+            '/state_estimate',
+            geometry_msgs.PoseWithCovarianceStamped, self.state_estimate_cb)
+
+        self._low_level_feedback_sub = rospy.Subscriber(
+            '/low_level_feedback',
+            quadrotor_msgs.LowLevelFeedback, self.low_level_feedback_cb)
+
         self.button_arm_bridge.setEnabled(True)
         self.button_start.setEnabled(True)
         self.button_land.setEnabled(True)
@@ -104,7 +114,8 @@ class AutopilotWidget(QWidget):
 
     def disconnect(self):
         self.disconnect_pub_sub(self._autopilot_feedback_sub)
-
+        self.disconnect_pub_sub(self._state_estimate_sub)
+        self.disconnect_pub_sub(self._low_level_feedback_sub)
         self.disconnect_pub_sub(self._arm_bridge_pub)
         self.disconnect_pub_sub(self._start_pub)
         self.disconnect_pub_sub(self._land_pub)
@@ -128,6 +139,14 @@ class AutopilotWidget(QWidget):
 
     def autopilot_feedback_cb(self, msg):
         self._autopilot_feedback = msg
+        self._autopilot_feedback_stamp = rospy.Time.now()
+
+    def state_estimate_cb(self, msg):
+        self._autopilot_feedback.state_estimate.pose = msg.pose
+        self._autopilot_feedback_stamp = rospy.Time.now()
+
+    def low_level_feedback_cb(self, msg):
+        self._autopilot_feedback.low_level_feedback = msg
         self._autopilot_feedback_stamp = rospy.Time.now()
 
     def update_gui(self):
