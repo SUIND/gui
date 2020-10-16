@@ -1,0 +1,8 @@
+<launch>
+     <arg name="quad_name" default="/"/>
+    
+        <node name="suind_gui" pkg="rqt_gui" type="rqt_gui" 
+        args="-s suind_gui.basic_flight.BasicFlight --args 
+        --quad_name $(arg quad_name)" output="screen"/>
+    
+</launch>
